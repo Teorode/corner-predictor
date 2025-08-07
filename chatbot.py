@@ -1093,10 +1093,9 @@ class EnhancedFootballCornerPredictor:
         
         # Cross-validation
         cv_scores_reg = cross_val_score(model_reg, X_selected_reg, y_regression, 
-                                       cv=tscv, scoring='neg_mean_absolute_error', n_jobs=-1)
-        
-        print(f"Cross-validation MAE: {-cv_scores_reg.mean():.3f} (±{cv_scores_reg.std() * 2:.3f})")
-        
+                                       cv=tscv, scoring='r2', n_jobs=-1)
+
+        print(f"Cross-validation R2: {cv_scores_reg.mean():.3f} (±{cv_scores_reg.std() * 2:.3f})")
         # Train final regression model
         model_reg.fit(X_selected_reg, y_regression)
         self.models['total_corners'] = model_reg

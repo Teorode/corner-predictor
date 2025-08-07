@@ -2,7 +2,7 @@ import pandas as pd
 import glob
 
 # 1. Znajdź wszystkie pliki CSV w katalogu
-csv_files = glob.glob(r"C:\Users\teodor\Desktop\dane_win\szwecja rożne\*.csv")  # zmień ścieżkę, np. "./data/*.csv"
+csv_files = glob.glob(r"/home/teodor/Pulpit/szwecja rożne/*.csv")  # zmień ścieżkę, np. "./data/*.csv"
 
 # 2. Wczytaj każdy plik do DataFrame
 dfs = [pd.read_csv(f) for f in csv_files]
